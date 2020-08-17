@@ -118,9 +118,9 @@ function upvote_system(;
     n = start_posts
     ranking = [1:start_posts...]
     time = 0
+    user_ratings = []
     """
     # Presorting posts, if sorted != 0 DEACTIVATED
-    user_ratings = []
     tmp_properties = @dict(user_opinion_function, time, quality_dimensions, relevance_gravity)
     tmp_model = ABM(UserType; properties = tmp_properties)
     scores = []
