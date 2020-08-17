@@ -30,4 +30,5 @@ export dcg, ndcg, spearman, gini, @top_k_gini, @area_under, post_with_no_views, 
 export metric_hacker_news, metric_reddit_hot, metric_activation, metric_view
 export vote_difference, vote_partition, vote_wilson
 export user, extreme_user
+export no_deviation, std_deviation, mean_deviation
 end
