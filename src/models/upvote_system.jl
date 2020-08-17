@@ -299,7 +299,11 @@ function model_step!(model)
 
 end
 
+"""
+    partial_shuffle(rng, v::AbstractArray, percent)
 
+shuffles `v` by ca. `percent` percent
+"""
 function partial_shuffle(rng, v::AbstractArray, percent)
     amount = round(Int, length(v) * percent)
     indeces = [1:length(v)...]
@@ -319,11 +323,32 @@ function partial_shuffle(rng, v::AbstractArray, percent)
     ret
 end
 
+
+"""
+    relevance(post, model)
+
+Returns the relevance of a post
+"""
 function relevance(post, model)
     sum(sigmoid.(post.quality))/(maximum([model.time-post.timestamp,1]))^(model.relevance_gravity)
 end
 
 
+"""
+    scoring_best(post, time, model)
+
+Returns the relevance of `post`, the best rating metric
+"""
+function scoring_best(post, time, model)
+    relevance(post,model)
+end
+
+
+"""
+    rating_quantile(model, quantile)
+
+Returns the quantile value  of `quantile`  of the rating distribution
+"""
 function rating_quantile(model, quantile)
     model.rating_distribution[maximum([1,Int64(round(length(model.rating_distribution)*quantile))])]
 end
