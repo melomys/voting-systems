@@ -118,9 +118,8 @@ function upvote_system(;
     n = start_posts
     ranking = [1:start_posts...]
     time = 0
-
-
-    # Presorting posts, if sorted != 0
+    """
+    # Presorting posts, if sorted != 0 DEACTIVATED
     user_ratings = []
     tmp_properties = @dict(user_opinion_function, time, quality_dimensions, relevance_gravity)
     tmp_model = ABM(UserType; properties = tmp_properties)
@@ -134,7 +133,7 @@ function upvote_system(;
     end
     tmp_ranking = sortperm(map(x -> s*x, scores))
     ranking = partial_shuffle(rng_model, tmp_ranking, 1 - abs(sorted))
-
+    """
 
     # calculate the distribution of user opinion
     nn = 100
