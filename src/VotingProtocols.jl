@@ -30,4 +30,5 @@ export metric_hacker_news, metric_reddit_hot, metric_activation, metric_view
 export vote_difference, vote_partition, vote_wilson
 export user, extreme_user
 export no_deviation, std_deviation, mean_deviation
+export consensus, dissent
 end
